@@ -162,8 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c663ca4f6b85447ca193fe4ae77d8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1748228881}
-  followThreshold: 0.5
+  followThreshold: 0.6
   smoothTime: 0.3
 --- !u!20 &519420031
 Camera:

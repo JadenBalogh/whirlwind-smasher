@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class CameraControls : MonoBehaviour
 {
-    [SerializeField] private Player player;
+    private Player player;
     [SerializeField] private float followThreshold = 0.5f;
     [SerializeField] private float smoothTime = 0.3f;
     private Vector3 velocity = Vector3.zero;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
 
     void Update()
     {
@@ -15,7 +20,7 @@ public class CameraControls : MonoBehaviour
         if (playerXPositionViewPort >= followThreshold)
         {
             Vector3 goalPosition = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
-            Camera.main.transform.position = Vector3.SmoothDamp(transform.position, goalPosition, ref velocity, smoothTime);
+            transform.position = Vector3.SmoothDamp(transform.position, goalPosition, ref velocity, smoothTime);
         }
     }
 }
