@@ -8,13 +8,7 @@ public class CameraControls : MonoBehaviour
     [SerializeField] private float followThreshold = 0.5f;
     [SerializeField] private float smoothTime = 0.3f;
     private Vector3 velocity = Vector3.zero;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         float playerXPositionViewPort = Camera.main.WorldToViewportPoint(player.transform.position).x;
