@@ -26,8 +26,9 @@ public class CameraControls : MonoBehaviour
             transform.position = Vector3.SmoothDamp(transform.position, cameraTargetPosition, ref velocity, smoothTime);
 
             // Move the wall forward 
-            // TODO: set the below numbers to be dynamically-obtained values (or have constants set more formally)
-            Vector3 wallTargetPosition = new Vector3(transform.position.x - 8.4f, 4, 10);
+            Vector3 wallTargetPosition = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
+            wallTargetPosition.y = 4;
+            wallTargetPosition.z = 10;
             wall.transform.position = wallTargetPosition;
         }
     }
