@@ -349,6 +349,7 @@ GameObject:
   - component: {fileID: 1748228877}
   - component: {fileID: 1748228880}
   - component: {fileID: 1748228879}
+  - component: {fileID: 1748228881}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -460,7 +461,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 3
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -468,3 +469,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1748228881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748228876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60827290bb589a44fbb3205ddb6d64a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDragTime: 0.4
+  dragAccelTime: 0.2
+  maxDragSpeed: 25
