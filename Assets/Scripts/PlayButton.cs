@@ -11,6 +11,7 @@ public class PlayButton : MonoBehaviour
     {
         MainMenu.Instance.Hide();
         StartCoroutine(StartGame());
+        Time.timeScale = 1;
     }
 
     private IEnumerator StartGame()
