@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         {
             if (!player.IsAttacking)
             {
-                player.ReduceEnergy(energyDamage);
+                player.ReduceEnergy(energyDamage, true);
             }
         }
     }
