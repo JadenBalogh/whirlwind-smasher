@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float minDist;
     [SerializeField] private float maxDist;
     [SerializeField] private float probability;
+
     private float nextX;
     private ArrayList spawnables = new ArrayList();
 
