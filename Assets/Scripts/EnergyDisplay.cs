@@ -6,16 +6,14 @@ public class EnergyDisplay : MonoBehaviour
 {
     [SerializeField] private RectTransform barFill;
 
-    Player player;
-
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         player.AddEnergyChangedListener(UpdateEnergy);
     }
 
-    private void UpdateEnergy(float energy)
+    private void UpdateEnergy(float energy, float maxEnergy)
     {
-        barFill.anchorMax = new Vector2(barFill.anchorMax.x, energy / player.MaxEnergy);
+        barFill.anchorMax = new Vector2(barFill.anchorMax.x, energy / maxEnergy);
     }
 }

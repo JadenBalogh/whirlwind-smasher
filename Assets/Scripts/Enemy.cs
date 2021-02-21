@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+    [System.Serializable] public class HealthChangedEvent : UnityEvent<float, float> { }
+
     [SerializeField] private float maxHealth = 10f;
+    [SerializeField] private HealthChangedEvent onHealthChanged = new HealthChangedEvent();
 
     private float health;
 
@@ -19,6 +23,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        onHealthChanged.Invoke(health, maxHealth);
         if (health <= 0) Die();
     }
 
@@ -30,5 +35,15 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void AddHealthChangedListener(UnityAction<float, float> listener)
+    {
+        onHealthChanged.AddListener(listener);
+    }
+
+    public void RemoveHealthChangedListener(UnityAction<float, float> listener)
+    {
+        onHealthChanged.RemoveListener(listener);
     }
 }

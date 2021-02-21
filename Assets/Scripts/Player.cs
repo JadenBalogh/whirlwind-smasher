@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    public class EnergyChangedEvent : UnityEvent<float> { }
+    public class EnergyChangedEvent : UnityEvent<float, float> { }
 
     [Header("Controls")]
     [SerializeField] private float maxDragTime = 0.5f;
@@ -87,28 +87,18 @@ public class Player : MonoBehaviour
     public void AddEnergy(float increase)
     {
         energy = Mathf.Min(maxEnergy, energy + increase);
-        onEnergyChanged.Invoke(energy);
+        onEnergyChanged.Invoke(energy, maxEnergy);
     }
 
     public void ReduceEnergy(float reduction)
     {
         energy = Mathf.Max(0, energy - reduction);
-        onEnergyChanged.Invoke(energy);
+        onEnergyChanged.Invoke(energy, maxEnergy);
         if (energy <= 0)
         {
             alive = false;
             Debug.Log("Game Over!");
         }
-    }
-
-    public void AddEnergyChangedListener(UnityAction<float> listener)
-    {
-        onEnergyChanged.AddListener(listener);
-    }
-
-    public void RemoveEnergyChangedListener(UnityAction<float> listener)
-    {
-        onEnergyChanged.RemoveListener(listener);
     }
 
     ///<summary>Returns the direction from the player's start position to the mouse position.</summary>
@@ -123,5 +113,15 @@ public class Player : MonoBehaviour
     {
         Vector3 currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         return currentMousePos != prevMousePos;
+    }
+
+    public void AddEnergyChangedListener(UnityAction<float, float> listener)
+    {
+        onEnergyChanged.AddListener(listener);
+    }
+
+    public void RemoveEnergyChangedListener(UnityAction<float, float> listener)
+    {
+        onEnergyChanged.RemoveListener(listener);
     }
 }
