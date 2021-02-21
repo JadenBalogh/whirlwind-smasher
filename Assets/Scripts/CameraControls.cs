@@ -8,13 +8,21 @@ public class CameraControls : MonoBehaviour
     [SerializeField] private float smoothTime = 0.3f;
     [SerializeField] private Transform wall;
 
+    private float cameraOffsetX = 0f;
     private Vector3 velocity = Vector3.zero;
     private Player player;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        // Set the initial wall position
         UpdateWall();
+
+        // Calculate camera follow offset
+        float cameraTargetX = Camera.main.ViewportToWorldPoint(Vector3.right * 0.5f).x;
+        float playerTargetX = Camera.main.ViewportToWorldPoint(Vector3.right * followThreshold).x;
+        cameraOffsetX = playerTargetX - cameraTargetX;
     }
 
     void FixedUpdate()
@@ -23,9 +31,7 @@ public class CameraControls : MonoBehaviour
         if (playerViewportX > followThreshold)
         {
             // Move camera forward to follow the player
-            float screenLeft = Camera.main.ViewportToWorldPoint(Vector3.zero).x;
-            float cameraViewportOffsetX = screenLeft - Camera.main.ViewportToWorldPoint(Vector3.right * (followThreshold - 0.5f)).x;
-            Vector3 cameraTargetPosition = new Vector3(player.transform.position.x - cameraViewportOffsetX, transform.position.y, transform.position.z);
+            Vector3 cameraTargetPosition = new Vector3(player.transform.position.x - cameraOffsetX, transform.position.y, transform.position.z);
             transform.position = Vector3.SmoothDamp(transform.position, cameraTargetPosition, ref velocity, smoothTime);
 
             // Move the wall forward 
