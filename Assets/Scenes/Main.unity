@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 716586784}
   - component: {fileID: 716586783}
   - component: {fileID: 716586785}
+  - component: {fileID: 716586786}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -450,6 +451,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7738a3bb7ab6cc54fa97351492783fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &716586786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716586782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cde6060ec0d944d98d825e01bed9410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpawn: 15
+  maxSpawn: 15
+  enemyPrefab: {fileID: 9127414273610422417, guid: 6cc61189981f6484f89078423a46ffe9, type: 3}
 --- !u!1 &1420124351
 GameObject:
   m_ObjectHideFlags: 0
