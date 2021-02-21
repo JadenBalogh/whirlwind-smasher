@@ -22,7 +22,14 @@ public class Barrel : MonoBehaviour
     {
         if (col.TryGetComponent<Player>(out Player player))
         {
-            player.AddEnergy(energyHitDrain);
+            if (player.IsAttacking)
+            {
+                player.AddEnergy(energyHitDrain);
+            }
+            else
+            {
+                player.ReduceEnergy(energyHitDrain, true);
+            }
         }
     }
 
