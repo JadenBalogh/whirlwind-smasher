@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8644815223698588917}
   - component: {fileID: 8644815223698588916}
   - component: {fileID: 8644815223698588915}
+  - component: {fileID: 599881530494987706}
   m_Layer: 0
   m_Name: BarrelBreakEffect
   m_TagString: Untagged
@@ -4862,3 +4863,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &599881530494987706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8644815223698588914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82640bb5df6ee484d94037e23c5cda42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

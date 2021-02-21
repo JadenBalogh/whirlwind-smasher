@@ -4851,6 +4851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5438523089559645083}
   - component: {fileID: -7699372137757248964}
+  - component: {fileID: 4454860578067706790}
   m_Layer: 0
   m_Name: Smear
   m_TagString: Untagged
@@ -4883,5 +4884,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63fe60ba273dd5d459dc117531efc5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4454860578067706790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5438523089559645082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82640bb5df6ee484d94037e23c5cda42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
