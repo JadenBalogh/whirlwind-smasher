@@ -15,15 +15,19 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject splatterPrefab;
     [SerializeField] private GameObject spurtPrefab;
     [SerializeField] private Smear smearPrefab;
+    [SerializeField] private AudioClip hurtSound;
 
     private float health;
     private Smear smear;
 
     private new Rigidbody2D rigidbody2D;
+    private AudioSource audioSource;
 
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
+
         health = maxHealth;
         gameObject.AddComponent(typeof(DestroyOnLeaveScreen));
     }
@@ -65,6 +69,9 @@ public class Enemy : MonoBehaviour
     {
         health -= damage;
         onHealthChanged.Invoke(health, maxHealth);
+
+        audioSource.PlayOneShot(hurtSound);
+
         if (health <= 0)
         {
             Die();
