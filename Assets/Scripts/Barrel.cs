@@ -32,5 +32,6 @@ public class Barrel : MonoBehaviour
         Instantiate(breakPrefab, transform.position, Quaternion.identity);
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         audioSource.PlayOneShot(breakSound);
+        Destroy(gameObject, 1f);
     }
 }
