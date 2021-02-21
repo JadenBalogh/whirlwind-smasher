@@ -22,8 +22,8 @@ public class BackgroundScroll : MonoBehaviour
         backgrounds = new GameObject[numberOfBackgrounds];
         for (int i = 0; i < numberOfBackgrounds; i++)
         {
-            Vector3 spawnPos = new Vector3(screenLeft + (backgroundWidth / 2 + backgroundWidth * i), 0, 0);
-            backgrounds[i] = Instantiate(backgroundPrefab, spawnPos, Quaternion.identity);
+            Vector3 spawnPos = new Vector3(screenLeft + (backgroundWidth / 2 + backgroundWidth * i), backgroundPrefab.transform.position.y, 0);
+            backgrounds[i] = Instantiate(backgroundPrefab, spawnPos, Quaternion.identity, transform);
         }
 
         leftIndex = 0;
