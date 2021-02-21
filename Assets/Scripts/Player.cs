@@ -124,6 +124,11 @@ public class Player : MonoBehaviour
             enemy.Knockback(rigidbody2D.velocity * impactForceTransferRatio, ForceMode2D.Impulse);
             AddEnergy(enemy.TakeDamage(impactDamage));
         }
+
+        if (col.TryGetComponent<Barrel>(out Barrel barrel))
+        {
+            ReduceEnergy(barrel.Break());
+        }
     }
 
     void OnTriggerStay2D(Collider2D col)
