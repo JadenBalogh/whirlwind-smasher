@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float minDragForce = 1f;
     [SerializeField] private float maxDragForce = 6f;
     [SerializeField] private float maxDragLength = 2.5f;
+    [SerializeField] private LayerMask groundedMask;
+    [SerializeField] private float groundedDist = 0.4f;
 
     [Header("Energy")]
     [SerializeField] private float maxEnergy = 100f;
@@ -35,6 +37,8 @@ public class Player : MonoBehaviour
 
     private bool alive = true;
     private float dragTimer = 0f;
+    private Vector2 groundedArea;
+    private Vector3 groundedOffset;
 
     private Coroutine hitBlinkCoroutine;
     private YieldInstruction hitBlinkInstruction;
@@ -53,8 +57,17 @@ public class Player : MonoBehaviour
 
         hitBlinkInstruction = new WaitForSeconds(hitBlinkTime);
 
+        groundedArea = new Vector2(spriteRenderer.bounds.size.x, groundedDist);
+        groundedOffset = Vector2.down * (spriteRenderer.bounds.extents.y + groundedDist / 2);
+
         energy = startEnergy;
         alive = true;
+    }
+
+    void Update()
+    {
+        Collider2D hit = Physics2D.OverlapBox(transform.position + groundedOffset, groundedArea, groundedDist, groundedMask);
+        animator.SetBool("IsGrounded", hit != null);
     }
 
     void OnMouseDown()
@@ -100,16 +113,6 @@ public class Player : MonoBehaviour
         isAttacking = false;
         animator.SetBool("IsAttacking", false);
         transform.rotation = Quaternion.identity;
-    }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        animator.SetBool("IsGrounded", true);
-    }
-
-    void OnCollisionExit2D(Collision2D col)
-    {
-        animator.SetBool("IsGrounded", false);
     }
 
     void OnTriggerEnter2D(Collider2D col)
