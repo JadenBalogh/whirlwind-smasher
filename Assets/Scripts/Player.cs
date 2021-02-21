@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.TryGetComponent<Enemy>(out Enemy enemy))
+        if (isAttacking && col.TryGetComponent<Enemy>(out Enemy enemy))
         {
             enemy.StartSmear();
             enemy.Splatter((transform.position - enemy.transform.position).normalized);
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.TryGetComponent<Enemy>(out Enemy enemy))
+        if (isAttacking && col.TryGetComponent<Enemy>(out Enemy enemy))
         {
             enemy.TakeDamage(damagePerSecond * Time.deltaTime);
             enemy.Knockback(rigidbody2D.velocity.normalized * knockbackForcePerSecond);

@@ -30,7 +30,10 @@ public class Enemy : MonoBehaviour
     {
         if (col.TryGetComponent<Player>(out Player player))
         {
-            player.ReduceEnergy(energyDamage);
+            if (!player.IsAttacking)
+            {
+                player.ReduceEnergy(energyDamage);
+            }
         }
     }
 
@@ -41,13 +44,18 @@ public class Enemy : MonoBehaviour
 
     public void StartSmear()
     {
+        StopSmear();
         smear = Instantiate(smearPrefab, transform.position, Quaternion.identity);
         smear.Attach(transform);
     }
 
     public void StopSmear()
     {
-        smear.Detach();
+        if (smear != null)
+        {
+            smear.Detach();
+            smear = null;
+        }
     }
 
     public void TakeDamage(float damage)
