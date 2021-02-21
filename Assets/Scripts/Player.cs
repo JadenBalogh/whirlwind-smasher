@@ -168,7 +168,9 @@ public class Player : MonoBehaviour
         if (energy <= 0)
         {
             alive = false;
-            Debug.Log("Game Over!");
+            HUD.Instance.Hide();
+            DeathMenu.Instance.Reveal();
+            spriteRenderer.enabled = false;
         }
     }
 
