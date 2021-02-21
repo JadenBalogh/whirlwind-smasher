@@ -48,12 +48,14 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private EnergyChangedEvent onEnergyChanged = new EnergyChangedEvent();
+    private PauseMenu pauseMenu;
 
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        pauseMenu = FindObjectOfType<PauseMenu>();
 
         hitBlinkInstruction = new WaitForSeconds(hitBlinkTime);
 
@@ -72,6 +74,7 @@ public class Player : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (pauseMenu.IsPaused) return;
         // Death check
         if (!alive) return;
 
@@ -82,6 +85,7 @@ public class Player : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (pauseMenu.IsPaused) return;
         // Death check
         if (!alive) return;
 
@@ -107,6 +111,7 @@ public class Player : MonoBehaviour
 
     void OnMouseUp()
     {
+        if (pauseMenu.IsPaused) return;
         // Death check
         if (!alive) return;
 
