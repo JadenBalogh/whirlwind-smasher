@@ -72,8 +72,8 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
             audioSource.PlayOneShot(hurtSound);
+            Die();
             return energyKillGain;
         }
         return 0;

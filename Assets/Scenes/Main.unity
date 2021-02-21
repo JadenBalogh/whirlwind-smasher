@@ -1537,7 +1537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDragTime: 0.5
   minDragForce: 1
-  maxDragForce: 6
+  maxDragForce: 8
   maxDragLength: 3
   groundedMask:
     serializedVersion: 2
