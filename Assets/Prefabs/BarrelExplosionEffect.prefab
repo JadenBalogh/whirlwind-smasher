@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8556756442900700703}
   - component: {fileID: 8556756442900700702}
   - component: {fileID: 8556756442900700697}
+  - component: {fileID: 807011840291518948}
   m_Layer: 0
   m_Name: BarrelExplosionEffect
   m_TagString: Untagged
@@ -4863,3 +4864,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &807011840291518948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8556756442900700696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82640bb5df6ee484d94037e23c5cda42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

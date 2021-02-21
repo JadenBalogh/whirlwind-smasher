@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 801681551350363789}
   - component: {fileID: 2111536695}
   - component: {fileID: 6858700845033973858}
+  - component: {fileID: 2061234533891882918}
   m_Layer: 7
   m_Name: BarrelObstacle
   m_TagString: Untagged
@@ -168,6 +169,18 @@ MonoBehaviour:
   breakPrefab: {fileID: 8644815223698588914, guid: 0ff9dfa7228d9ea428598d5f43860fa4, type: 3}
   explosionPrefab: {fileID: 8556756442900700696, guid: 52fc38a3d7b1ca2479a9ced3d64fe32a, type: 3}
   energyHitDrain: 10
+--- !u!114 &2061234533891882918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9127414273610422426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82640bb5df6ee484d94037e23c5cda42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9127414274615888602
 GameObject:
   m_ObjectHideFlags: 0
