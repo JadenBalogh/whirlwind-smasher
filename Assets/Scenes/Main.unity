@@ -170,6 +170,7 @@ MonoBehaviour:
   - {fileID: -8917558347977601276, guid: 86858c8cced6f4697aa6f54f526944ae, type: 3}
   minDist: 5
   maxDist: 15
+  probability: 0.8
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +563,7 @@ MonoBehaviour:
   - {fileID: 9127414273610422417, guid: 6cc61189981f6484f89078423a46ffe9, type: 3}
   minDist: 5
   maxDist: 25
+  probability: 0.5
 --- !u!1 &1420124351
 GameObject:
   m_ObjectHideFlags: 0
