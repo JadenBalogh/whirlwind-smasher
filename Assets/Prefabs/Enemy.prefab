@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa1cc448cde291a4182c8f79bd3877e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 50
   energyDamage: 5
   onHealthChanged:
     m_PersistentCalls:
@@ -314,8 +314,8 @@ MonoBehaviour:
         m_CallState: 2
   spurtSpawn: {fileID: 1342146564}
   splatterPrefab: {fileID: 1764354674500160262, guid: 3b886b63d85ef80448e47662d1e0a8a2, type: 3}
-  smearPrefab: {fileID: 8031996188539771396, guid: 1d93bb8817875d1409c39b146f82fdb3, type: 3}
   spurtPrefab: {fileID: 2316312402560262696, guid: fa18db9663189da43927520cb53adfd4, type: 3}
+  smearPrefab: {fileID: -7699372137757248964, guid: 1d93bb8817875d1409c39b146f82fdb3, type: 3}
 --- !u!1 &9127414273709215078
 GameObject:
   m_ObjectHideFlags: 0

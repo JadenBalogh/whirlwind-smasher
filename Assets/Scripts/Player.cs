@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
     {
         if (col.TryGetComponent<Enemy>(out Enemy enemy))
         {
+            enemy.StartSmear();
             enemy.Splatter((transform.position - enemy.transform.position).normalized);
             enemy.TakeDamage(impactDamage);
             enemy.Knockback(rigidbody2D.velocity * impactForceTransferRatio, ForceMode2D.Impulse);
@@ -86,6 +87,14 @@ public class Player : MonoBehaviour
         {
             enemy.TakeDamage(damagePerSecond * Time.deltaTime);
             enemy.Knockback(rigidbody2D.velocity.normalized * knockbackForcePerSecond);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.TryGetComponent<Enemy>(out Enemy enemy))
+        {
+            enemy.StopSmear();
         }
     }
 
