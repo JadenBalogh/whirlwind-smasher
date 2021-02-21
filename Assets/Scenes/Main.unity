@@ -813,7 +813,7 @@ GameObject:
   - component: {fileID: 1913912838}
   - component: {fileID: 1913912840}
   - component: {fileID: 1913912839}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -888,10 +888,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9127414273610422417, guid: 6cc61189981f6484f89078423a46ffe9, type: 3}
-      propertyPath: maxHealth
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 9127414273610422420, guid: 6cc61189981f6484f89078423a46ffe9, type: 3}
       propertyPath: m_RootOrder
       value: 5

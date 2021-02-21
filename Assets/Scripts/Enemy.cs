@@ -12,10 +12,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private HealthChangedEvent onHealthChanged = new HealthChangedEvent();
     [SerializeField] private Transform spurtSpawn;
     [SerializeField] private GameObject splatterPrefab;
-    [SerializeField] private GameObject smearPrefab;
     [SerializeField] private GameObject spurtPrefab;
+    [SerializeField] private Smear smearPrefab;
 
     private float health;
+    private Smear smear;
 
     private new Rigidbody2D rigidbody2D;
 
@@ -36,6 +37,17 @@ public class Enemy : MonoBehaviour
     public void Splatter(Vector2 direction)
     {
         Instantiate(splatterPrefab, transform.position, Quaternion.FromToRotation(Vector2.left, direction));
+    }
+
+    public void StartSmear()
+    {
+        smear = Instantiate(smearPrefab, transform.position, Quaternion.identity);
+        smear.Attach(transform);
+    }
+
+    public void StopSmear()
+    {
+        smear.Detach();
     }
 
     public void TakeDamage(float damage)
