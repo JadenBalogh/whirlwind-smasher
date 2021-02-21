@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float damagePerSecond = 10f;
     [SerializeField] private float impactForceTransferRatio = 0.5f;
     [SerializeField] private float knockbackForcePerSecond = 5f;
+    [SerializeField] private AudioClip hurtSound;
 
     private float energy;
     public float Energy { get { return energy; } }
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
     private new Rigidbody2D rigidbody2D;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private AudioSource audioSource;
 
     private EnergyChangedEvent onEnergyChanged = new EnergyChangedEvent();
 
@@ -54,6 +56,7 @@ public class Player : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         hitBlinkInstruction = new WaitForSeconds(hitBlinkTime);
 
@@ -127,7 +130,7 @@ public class Player : MonoBehaviour
 
         if (col.TryGetComponent<Barrel>(out Barrel barrel))
         {
-            ReduceEnergy(barrel.Break());
+            barrel.Break();
         }
     }
 
@@ -161,6 +164,8 @@ public class Player : MonoBehaviour
 
         if (blink)
         {
+            audioSource.PlayOneShot(hurtSound);
+
             if (hitBlinkCoroutine != null) StopCoroutine(hitBlinkCoroutine);
             hitBlinkCoroutine = StartCoroutine(HitBlink());
         }
