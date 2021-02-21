@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class EnvironmentBuilder : MonoBehaviour
+public class RandomSpawner : MonoBehaviour
 {
     [SerializeField] private float minSpawn;
     [SerializeField] private float maxSpawn;

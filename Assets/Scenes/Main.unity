@@ -460,11 +460,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 716586782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cde6060ec0d944d98d825e01bed9410, type: 3}
+  m_Script: {fileID: 11500000, guid: 201b1c2e68a3c42c2afedabe5b187a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawn: 15
-  maxSpawn: 15
+  minSpawn: 10
+  maxSpawn: 30
   enemyPrefab: {fileID: 9127414273610422417, guid: 6cc61189981f6484f89078423a46ffe9, type: 3}
 --- !u!1 &1420124351
 GameObject:
@@ -795,9 +795,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60827290bb589a44fbb3205ddb6d64a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDragTime: 0.5
+  maxDragTime: 2
   minDragForce: 1
-  maxDragForce: 6
+  maxDragForce: 20
   maxDragLength: 3
   groundedMask:
     serializedVersion: 2
