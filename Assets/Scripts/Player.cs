@@ -75,6 +75,7 @@ public class Player : MonoBehaviour
     void OnMouseDown()
     {
         if (pauseMenu.IsPaused) return;
+
         // Death check
         if (!alive) return;
 
@@ -86,6 +87,7 @@ public class Player : MonoBehaviour
     void OnMouseDrag()
     {
         if (pauseMenu.IsPaused) return;
+
         // Death check
         if (!alive) return;
 
@@ -112,6 +114,7 @@ public class Player : MonoBehaviour
     void OnMouseUp()
     {
         if (pauseMenu.IsPaused) return;
+
         // Death check
         if (!alive) return;
 
