@@ -326,7 +326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
-  energyDamage: 20
+  energyKillGain: 10
+  energyHitDamage: 20
   onHealthChanged:
     m_PersistentCalls:
       m_Calls:

@@ -108,8 +108,8 @@ public class Player : MonoBehaviour
         {
             enemy.StartSmear();
             enemy.Splatter((transform.position - enemy.transform.position).normalized);
-            enemy.TakeDamage(impactDamage);
             enemy.Knockback(rigidbody2D.velocity * impactForceTransferRatio, ForceMode2D.Impulse);
+            AddEnergy(enemy.TakeDamage(impactDamage));
         }
     }
 
@@ -117,8 +117,8 @@ public class Player : MonoBehaviour
     {
         if (isAttacking && col.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            enemy.TakeDamage(damagePerSecond * Time.deltaTime);
             enemy.Knockback(rigidbody2D.velocity.normalized * knockbackForcePerSecond);
+            AddEnergy(enemy.TakeDamage(damagePerSecond * Time.deltaTime));
         }
     }
 
