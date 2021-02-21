@@ -70,11 +70,10 @@ public class Enemy : MonoBehaviour
         health -= damage;
         onHealthChanged.Invoke(health, maxHealth);
 
-        audioSource.PlayOneShot(hurtSound);
-
         if (health <= 0)
         {
             Die();
+            audioSource.PlayOneShot(hurtSound);
             return energyKillGain;
         }
         return 0;
