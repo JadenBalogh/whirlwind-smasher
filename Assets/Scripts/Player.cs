@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
 
     private new Rigidbody2D rigidbody2D;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     private EnergyChangedEvent onEnergyChanged = new EnergyChangedEvent();
 
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         energy = startEnergy;
         alive = true;
@@ -75,7 +77,9 @@ public class Player : MonoBehaviour
         rigidbody2D.AddForce(dragForce * dragVector.normalized);
 
         // Rotate to face current direction
-        transform.rotation = Quaternion.FromToRotation(Vector2.right, dragVector);
+        bool isRotating = animator.GetBool("IsRotating");
+        transform.rotation = isRotating ? Quaternion.FromToRotation(Vector2.right, dragVector) : Quaternion.identity;
+        spriteRenderer.flipX = !isRotating && dragVector.x < 0;
 
         // Reduce energy over time
         ReduceEnergy(dragEnergyDrainRate * Time.deltaTime);
@@ -85,7 +89,7 @@ public class Player : MonoBehaviour
     {
         // Death check
         if (!alive) return;
-        
+
         isAttacking = false;
         animator.SetBool("IsAttacking", false);
         transform.rotation = Quaternion.identity;
