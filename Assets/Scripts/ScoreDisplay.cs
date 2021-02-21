@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ScoreDisplay : MonoBehaviour
 {
+    [SerializeField] private string prefix = "";
+
     private Text textBox;
 
     void Awake()
@@ -20,6 +22,6 @@ public class ScoreDisplay : MonoBehaviour
 
     private void UpdateScore(float score)
     {
-        textBox.text = score.ToString("F1") + " m";
+        textBox.text = prefix + score.ToString("F1") + " m";
     }
 }
