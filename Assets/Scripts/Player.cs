@@ -35,19 +35,27 @@ public class Player : MonoBehaviour
     private float dragTimer = 0f;
 
     private new Rigidbody2D rigidbody2D;
+    private Animator animator;
 
     private EnergyChangedEvent onEnergyChanged = new EnergyChangedEvent();
 
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
         energy = startEnergy;
         alive = true;
     }
 
     void OnMouseDown()
     {
+        // Death check
+        if (!alive) return;
+
         dragTimer = 0;
+        isAttacking = true;
+        animator.SetBool("IsAttacking", true);
     }
 
     void OnMouseDrag()
@@ -66,8 +74,21 @@ public class Player : MonoBehaviour
         float dragForce = Mathf.Lerp(minDragForce, maxDragForce, dragVector.magnitude / maxDragLength);
         rigidbody2D.AddForce(dragForce * dragVector.normalized);
 
+        // Rotate to face current direction
+        transform.rotation = Quaternion.FromToRotation(Vector2.right, dragVector);
+
         // Reduce energy over time
         ReduceEnergy(dragEnergyDrainRate * Time.deltaTime);
+    }
+
+    void OnMouseUp()
+    {
+        // Death check
+        if (!alive) return;
+        
+        isAttacking = false;
+        animator.SetBool("IsAttacking", false);
+        transform.rotation = Quaternion.identity;
     }
 
     void OnTriggerEnter2D(Collider2D col)
