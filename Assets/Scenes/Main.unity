@@ -726,6 +726,10 @@ MonoBehaviour:
   minDragForce: 1
   maxDragForce: 6
   maxDragLength: 3
+  groundedMask:
+    serializedVersion: 2
+    m_Bits: 1
+  groundedDist: 0.2
   maxEnergy: 100
   startEnergy: 100
   dragEnergyDrainRate: 5
