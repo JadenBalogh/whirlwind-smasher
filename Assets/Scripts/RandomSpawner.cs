@@ -21,8 +21,8 @@ public class RandomSpawner : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        SpawnNextEnemy();
-        SpawnNextObstacle();
+        SpawnNext(enemyPrefab, ref enemyNextX);
+        SpawnNext(obstaclePrefab, ref obstacleNextX);
         // enemies = GameObject.FindGameObjectsWithTag("Enemy");
         // powerups = GameObject.FindGameObjectsWithTag("Powerups");
         // obstacles = GameObject.FindGameObjectsWithTag("Obstacles");
@@ -30,27 +30,19 @@ public class RandomSpawner : MonoBehaviour
 
     void Update()
     {
-        // Debug.Log(Camera.main.ViewportToWorldPoint(Vector3.right).x);
-        // Debug.Log("Mouse " + Camera.main.ScreenToWorldPoint(Input.mousePosition));
         if (player.transform.position.x >= enemyNextX)
         {
-            SpawnNextEnemy();
+            SpawnNext(enemyPrefab, ref enemyNextX);
         }
         if (player.transform.position.x >= obstacleNextX)
         {
-            SpawnNextObstacle();
+            SpawnNext(obstaclePrefab, ref obstacleNextX);
         }
     }
 
-    private void SpawnNextEnemy()
+    private void SpawnNext(MonoBehaviour prefab, ref float nextX)
     {
-        enemyNextX = Camera.main.ViewportToWorldPoint(Vector2.right).x + Random.Range(minSpawn, maxSpawn);
-        randomObjects.Add(Instantiate(enemyPrefab, new Vector2(enemyNextX, -3.425f), Quaternion.identity));
-    }
-
-    private void SpawnNextObstacle()
-    {
-        obstacleNextX = Camera.main.ViewportToWorldPoint(Vector2.right).x + Random.Range(minSpawn, maxSpawn);
-        randomObjects.Add(Instantiate(obstaclePrefab, new Vector2(obstacleNextX, -3.425f), Quaternion.identity));
+        nextX = Camera.main.ViewportToWorldPoint(Vector2.right).x + Random.Range(minSpawn, maxSpawn);
+        randomObjects.Add(Instantiate(prefab, new Vector2(nextX, -3.425f), Quaternion.identity));
     }
 }
