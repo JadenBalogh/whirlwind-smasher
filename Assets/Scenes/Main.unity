@@ -729,6 +729,8 @@ MonoBehaviour:
   maxEnergy: 100
   startEnergy: 100
   dragEnergyDrainRate: 5
+  hitBlinkColor: {r: 1, g: 0, b: 0, a: 1}
+  hitBlinkTime: 0.2
   impactDamage: 20
   damagePerSecond: 100
   impactForceTransferRatio: 0.3

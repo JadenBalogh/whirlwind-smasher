@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public float MaxEnergy { get { return maxEnergy; } }
     [SerializeField] private float startEnergy = 100f;
     [SerializeField] private float dragEnergyDrainRate = 5f;
+    [SerializeField] private Color hitBlinkColor = Color.white;
+    [SerializeField] private float hitBlinkTime = 0.3f;
 
     [Header("Combat")]
     [SerializeField] private float impactDamage = 10f;
@@ -34,6 +36,9 @@ public class Player : MonoBehaviour
     private bool alive = true;
     private float dragTimer = 0f;
 
+    private Coroutine hitBlinkCoroutine;
+    private YieldInstruction hitBlinkInstruction;
+
     private new Rigidbody2D rigidbody2D;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -45,6 +50,8 @@ public class Player : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        hitBlinkInstruction = new WaitForSeconds(hitBlinkTime);
 
         energy = startEnergy;
         alive = true;
@@ -129,10 +136,17 @@ public class Player : MonoBehaviour
         onEnergyChanged.Invoke(energy, maxEnergy);
     }
 
-    public void ReduceEnergy(float reduction)
+    public void ReduceEnergy(float reduction, bool blink = false)
     {
         energy = Mathf.Max(0, energy - reduction);
         onEnergyChanged.Invoke(energy, maxEnergy);
+
+        if (blink)
+        {
+            if (hitBlinkCoroutine != null) StopCoroutine(hitBlinkCoroutine);
+            hitBlinkCoroutine = StartCoroutine(HitBlink());
+        }
+
         if (energy <= 0)
         {
             alive = false;
@@ -143,6 +157,13 @@ public class Player : MonoBehaviour
     private Vector3 GetMousePosition()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    private IEnumerator HitBlink()
+    {
+        spriteRenderer.color = hitBlinkColor;
+        yield return hitBlinkInstruction;
+        spriteRenderer.color = Color.white;
     }
 
     public void AddEnergyChangedListener(UnityAction<float, float> listener)
