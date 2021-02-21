@@ -36,7 +36,6 @@ public class BackgroundScroll : MonoBehaviour
         if (backgrounds[leftIndex].transform.position.x + backgroundWidth / 2 < screenLeft)
         {
             int rightIndex = (leftIndex + backgrounds.Length - 1) % backgrounds.Length;
-            Debug.Log(rightIndex);
             backgrounds[leftIndex].transform.position = new Vector3((backgrounds[rightIndex].transform.position.x + backgroundWidth), 0, 0);
             leftIndex = (leftIndex + 1) % backgrounds.Length;
         }
