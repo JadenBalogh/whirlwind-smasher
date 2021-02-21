@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         health = maxHealth;
+        gameObject.AddComponent(typeof(DestroyOnLeaveScreen));
     }
 
     void OnTriggerEnter2D(Collider2D col)

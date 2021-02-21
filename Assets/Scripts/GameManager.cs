@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     private static ScoreSystem scoreSystem;
     public static ScoreSystem ScoreSystem { get { return scoreSystem; } }
+    private static SpawnerManager spawnerManager;
 
     void Awake()
     {
@@ -19,5 +20,6 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         scoreSystem = GetComponent<ScoreSystem>();
+        spawnerManager = GetComponent<SpawnerManager>();
     }
 }
