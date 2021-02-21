@@ -102,6 +102,16 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.identity;
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        animator.SetBool("IsGrounded", true);
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        animator.SetBool("IsGrounded", false);
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (isAttacking && col.TryGetComponent<Enemy>(out Enemy enemy))
