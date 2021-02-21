@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: 875c82cbcc8514c49810e4e528715f29
+guid: 2babacf031d9ed943bbcaca9b7a5a1c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6705006257605512299
-    second: player_power_up_0
+      213: -7460165177508712371
+    second: barrel_explosion_0
   - first:
-      213: 764664127852866736
-    second: player_power_up_1
+      213: 1526362721866825552
+    second: barrel_explosion_1
   - first:
-      213: 743665071677813399
-    second: player_power_up_2
+      213: 3454138915468580766
+    second: barrel_explosion_2
   - first:
-      213: 6721406714352206956
-    second: player_power_up_3
+      213: -9042234939686829600
+    second: barrel_explosion_3
   - first:
-      213: -4726003325729423208
-    second: player_power_up_4
+      213: -8032052109496186440
+    second: barrel_explosion_4
   - first:
-      213: 7900715830315260406
-    second: player_power_up_5
+      213: 7196644695115391899
+    second: barrel_explosion_5
+  - first:
+      213: -1719649008005553629
+    second: barrel_explosion_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,7 +67,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,23 +120,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_power_up_0
+      name: barrel_explosion_0
       rect:
         serializedVersion: 2
         x: 0
@@ -147,17 +138,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6c0959aaa7fc0d50800000000000000
-      internalID: 6705006257605512299
+      spriteID: d40bad4fb4b287890800000000000000
+      internalID: -7460165177508712371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_power_up_1
+      name: barrel_explosion_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 127
         y: 0
         width: 128
         height: 128
@@ -168,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bc672119f1ac9a00800000000000000
-      internalID: 764664127852866736
+      spriteID: 05f354bfecabe2510800000000000000
+      internalID: 1526362721866825552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_power_up_2
+      name: barrel_explosion_2
       rect:
         serializedVersion: 2
         x: 256
@@ -189,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 792b83d4177025a00800000000000000
-      internalID: 743665071677813399
+      spriteID: e979b55fa019fef20800000000000000
+      internalID: 3454138915468580766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_power_up_3
+      name: barrel_explosion_3
       rect:
         serializedVersion: 2
         x: 384
@@ -210,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6483ef8bcb374d50800000000000000
-      internalID: 6721406714352206956
+      spriteID: 0e1475cea37838280800000000000000
+      internalID: -9042234939686829600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_power_up_4
+      name: barrel_explosion_4
       rect:
         serializedVersion: 2
         x: 512
@@ -231,14 +222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8904592c30dd96eb0800000000000000
-      internalID: -4726003325729423208
+      spriteID: 8b98d0c792b688090800000000000000
+      internalID: -8032052109496186440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_power_up_5
+      name: barrel_explosion_5
       rect:
         serializedVersion: 2
         x: 640
@@ -252,8 +243,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f91f39103bf4ad60800000000000000
-      internalID: 7900715830315260406
+      spriteID: b936d03883e9fd360800000000000000
+      internalID: 7196644695115391899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrel_explosion_6
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322e97b96549228e0800000000000000
+      internalID: -1719649008005553629
       vertices: []
       indices: 
       edges: []

@@ -8,7 +8,8 @@ public class Enemy : MonoBehaviour
     [System.Serializable] public class HealthChangedEvent : UnityEvent<float, float> { }
 
     [SerializeField] private float maxHealth = 10f;
-    [SerializeField] private float energyDamage = 5f;
+    [SerializeField] private float energyKillGain = 5f;
+    [SerializeField] private float energyHitDamage = 5f;
     [SerializeField] private HealthChangedEvent onHealthChanged = new HealthChangedEvent();
     [SerializeField] private Transform spurtSpawn;
     [SerializeField] private GameObject splatterPrefab;
@@ -30,7 +31,10 @@ public class Enemy : MonoBehaviour
     {
         if (col.TryGetComponent<Player>(out Player player))
         {
-            player.ReduceEnergy(energyDamage);
+            if (!player.IsAttacking)
+            {
+                player.ReduceEnergy(energyHitDamage, true);
+            }
         }
     }
 
@@ -41,20 +45,31 @@ public class Enemy : MonoBehaviour
 
     public void StartSmear()
     {
+        StopSmear();
         smear = Instantiate(smearPrefab, transform.position, Quaternion.identity);
         smear.Attach(transform);
     }
 
     public void StopSmear()
     {
-        smear.Detach();
+        if (smear != null)
+        {
+            smear.Detach();
+            smear = null;
+        }
     }
 
-    public void TakeDamage(float damage)
+    ///<summary>Returns the amount of energy gained from the damage dealt.</summary>
+    public float TakeDamage(float damage)
     {
         health -= damage;
         onHealthChanged.Invoke(health, maxHealth);
-        if (health <= 0) Die();
+        if (health <= 0)
+        {
+            Die();
+            return energyKillGain;
+        }
+        return 0;
     }
 
     public void Knockback(Vector2 force, ForceMode2D mode = ForceMode2D.Force)

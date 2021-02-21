@@ -1,25 +1,13 @@
 fileFormatVersion: 2
-guid: 875c82cbcc8514c49810e4e528715f29
+guid: c4839a5399f106a4d839ef42b6cc7da3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6705006257605512299
-    second: player_power_up_0
+      213: -3902432758313232534
+    second: player_fall_0
   - first:
-      213: 764664127852866736
-    second: player_power_up_1
-  - first:
-      213: 743665071677813399
-    second: player_power_up_2
-  - first:
-      213: 6721406714352206956
-    second: player_power_up_3
-  - first:
-      213: -4726003325729423208
-    second: player_power_up_4
-  - first:
-      213: 7900715830315260406
-    second: player_power_up_5
+      213: 5428085043029730611
+    second: player_fall_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_power_up_0
+      name: player_fall_0
       rect:
         serializedVersion: 2
         x: 0
@@ -147,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6c0959aaa7fc0d50800000000000000
-      internalID: 6705006257605512299
+      spriteID: a6754e01516c7d9c0800000000000000
+      internalID: -3902432758313232534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_power_up_1
+      name: player_fall_1
       rect:
         serializedVersion: 2
         x: 128
@@ -168,92 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bc672119f1ac9a00800000000000000
-      internalID: 764664127852866736
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_power_up_2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 792b83d4177025a00800000000000000
-      internalID: 743665071677813399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_power_up_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6483ef8bcb374d50800000000000000
-      internalID: 6721406714352206956
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_power_up_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8904592c30dd96eb0800000000000000
-      internalID: -4726003325729423208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_power_up_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f91f39103bf4ad60800000000000000
-      internalID: 7900715830315260406
+      spriteID: 335e560669e645b40800000000000000
+      internalID: 5428085043029730611
       vertices: []
       indices: 
       edges: []
