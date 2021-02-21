@@ -18,6 +18,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float startEnergy = 100f;
     [SerializeField] private float dragEnergyDrainRate = 5f;
 
+    [Header("Combat")]
+    [SerializeField] private float impactDamage = 10f;
+    [SerializeField] private float damagePerSecond = 10f;
+    [SerializeField] private float impactForceTransferRatio = 0.5f;
+    [SerializeField] private float knockbackForcePerSecond = 5f;
+
     private float energy;
     public float Energy { get { return energy; } }
 
@@ -58,6 +64,24 @@ public class Player : MonoBehaviour
         ReduceEnergy(dragEnergyDrainRate * Time.deltaTime);
 
         prevMousePos = transform.position;
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.TryGetComponent<Enemy>(out Enemy enemy))
+        {
+            enemy.TakeDamage(impactDamage);
+            enemy.Knockback(rigidbody2D.velocity * impactForceTransferRatio, ForceMode2D.Impulse);
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.TryGetComponent<Enemy>(out Enemy enemy))
+        {
+            enemy.TakeDamage(damagePerSecond * Time.deltaTime);
+            enemy.Knockback(rigidbody2D.velocity.normalized * knockbackForcePerSecond);
+        }
     }
 
     public void AddEnergy(float increase)
