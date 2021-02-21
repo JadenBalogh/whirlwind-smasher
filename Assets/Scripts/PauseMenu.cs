@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject UI;
     private bool isPaused;
-    public bool IsPaused { get { return isPaused; } }
+    public bool IsPaused { get { return isPaused; } set { isPaused = value; } }
 
     void Update()
     {
@@ -23,6 +23,13 @@ public class PauseMenu : MonoBehaviour
         else Time.timeScale = 0;
         UI.SetActive(!UI.activeSelf);
         isPaused = !isPaused;
+    }
+
+    public void UnPause()
+    {
+        Time.timeScale = 1;
+        UI.SetActive(false);
+        isPaused = false;
     }
 
     public void Restart()
