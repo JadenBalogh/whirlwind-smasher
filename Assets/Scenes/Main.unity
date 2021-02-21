@@ -513,6 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+  energyDamage: 5
   onHealthChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1126,11 +1127,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDragTime: 0.5
-  dragAccelTime: 0.3
-  maxDragSpeed: 20
+  minDragForce: 1
+  maxDragForce: 10
+  maxDragLength: 3
   maxEnergy: 100
   startEnergy: 100
-  dragEnergyDrainRate: 20
+  dragEnergyDrainRate: 5
   impactDamage: 20
   damagePerSecond: 100
   impactForceTransferRatio: 0.5

@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [System.Serializable] public class HealthChangedEvent : UnityEvent<float, float> { }
 
     [SerializeField] private float maxHealth = 10f;
+    [SerializeField] private float energyDamage = 5f;
     [SerializeField] private HealthChangedEvent onHealthChanged = new HealthChangedEvent();
 
     private float health;
@@ -18,6 +19,14 @@ public class Enemy : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         health = maxHealth;
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.TryGetComponent<Player>(out Player player))
+        {
+            player.ReduceEnergy(energyDamage);
+        }
     }
 
     public void TakeDamage(float damage)
