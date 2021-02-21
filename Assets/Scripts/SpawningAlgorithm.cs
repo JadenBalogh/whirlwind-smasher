@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SpawningAlgorithm : MonoBehaviour
 {
+    [SerializeField] private float minSpawn;
+    [SerializeField] private float maxSpawn;
+
     private Player player;
     private float distanceTraveled;
     private float nextDistance;
-    [SerializeField]private float minSpawn;
-    [SerializeField]private float maxSpawn;
     private GameObject[] enemies;
     private GameObject[] powerups;
     private GameObject[] obstacles;
@@ -25,8 +26,9 @@ public class SpawningAlgorithm : MonoBehaviour
     void Update()
     {
         distanceTraveled = player.transform.position.x;
-        if(distanceTraveled == nextDistance) {
-            
+        if (distanceTraveled == nextDistance)
+        {
+
             nextDistance = Random.Range(minSpawn + distanceTraveled, maxSpawn + distanceTraveled);
         }
     }
