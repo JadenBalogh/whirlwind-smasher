@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
     {
         if (col.TryGetComponent<Enemy>(out Enemy enemy))
         {
+            enemy.Splatter((transform.position - enemy.transform.position).normalized);
             enemy.TakeDamage(impactDamage);
             enemy.Knockback(rigidbody2D.velocity * impactForceTransferRatio, ForceMode2D.Impulse);
         }

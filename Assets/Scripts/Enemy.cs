@@ -10,6 +10,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float maxHealth = 10f;
     [SerializeField] private float energyDamage = 5f;
     [SerializeField] private HealthChangedEvent onHealthChanged = new HealthChangedEvent();
+    [SerializeField] private Transform spurtSpawn;
+    [SerializeField] private GameObject splatterPrefab;
+    [SerializeField] private GameObject smearPrefab;
+    [SerializeField] private GameObject spurtPrefab;
 
     private float health;
 
@@ -29,6 +33,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void Splatter(Vector2 direction)
+    {
+        Instantiate(splatterPrefab, transform.position, Quaternion.FromToRotation(Vector2.left, direction));
+    }
+
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -43,6 +52,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        Instantiate(spurtPrefab, spurtSpawn.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
