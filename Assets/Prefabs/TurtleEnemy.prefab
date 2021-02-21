@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 801681551350363789}
   - component: {fileID: 4308848734514985335}
   - component: {fileID: 9127414273610422417}
+  - component: {fileID: 6467703697658023762}
   m_Layer: 7
   m_Name: TurtleEnemy
   m_TagString: Untagged
@@ -347,6 +348,18 @@ MonoBehaviour:
   splatterPrefab: {fileID: 1764354674500160262, guid: 3b886b63d85ef80448e47662d1e0a8a2, type: 3}
   spurtPrefab: {fileID: 2316312402560262696, guid: fa18db9663189da43927520cb53adfd4, type: 3}
   smearPrefab: {fileID: -7699372137757248964, guid: 1d93bb8817875d1409c39b146f82fdb3, type: 3}
+--- !u!114 &6467703697658023762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9127414273610422426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82640bb5df6ee484d94037e23c5cda42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9127414273709215078
 GameObject:
   m_ObjectHideFlags: 0
