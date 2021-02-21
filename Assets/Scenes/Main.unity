@@ -836,9 +836,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60827290bb589a44fbb3205ddb6d64a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDragTime: 2
+  maxDragTime: 0.5
   minDragForce: 1
-  maxDragForce: 20
+  maxDragForce: 6
   maxDragLength: 3
   groundedMask:
     serializedVersion: 2
